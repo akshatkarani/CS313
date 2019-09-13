@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app>  
+ ....  
+  
+  <welcome-file-list>  
+   <welcome-file>index.html</welcome-file>  
+  </welcome-file-list>  
+  
+  <servlet>
+      <servlet-name>studentServlet</servlet-name>
+      <servlet-class>studentServlet</servlet-class>
+   </servlet>
+ 
+   <servlet-mapping>
+      <servlet-name>studentServlet</servlet-name>
+      <url-pattern>/studentServlet</url-pattern>
+   </servlet-mapping>
+</web-app>  
