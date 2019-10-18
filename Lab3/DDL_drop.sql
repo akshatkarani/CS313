@@ -32,6 +32,9 @@ create table course
 	 primary key (course_id),
 	 foreign key (dept_name) references department
 		on delete set null
+	-- if a department is deleted the in course table, in that tuple
+	-- that department will be set to null
+	-- on delete cascade will delete (search "on delete sql")
 	);
 
 create table instructor

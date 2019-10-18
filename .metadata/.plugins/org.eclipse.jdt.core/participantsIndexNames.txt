@@ -1,4 +1,6 @@
 INDEX VERSION 1.131
+/home/akshat/Acad/Sem5/CS313/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/3559571510.index
+/Db1/src
 /home/akshat/Acad/Sem5/CS313/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/3726050014.index
 /MVCDemoProject/src
 /home/akshat/Acad/Sem5/CS313/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/2070988387.index
