@@ -1,2 +1,1 @@
 INDEX VERSION 1.4+/home/akshat/Acad/Sem5/CS313/.metadata/.plugins/org.eclipse.wst.jsdt.core/indexes
-2610279251.index

@@ -1,0 +1,13 @@
+Toy DB
+
+The uploaded tar file contains the required documentation to use Toy DB. The project/assignment specific to Toy DB would involve understanding the various functions exposed by the two layers (Access Method and Paged File Layer) of Toy DB and using these functions to achieve your ends. 
+
+The given source code is written entirely in C. Still, if you feel you are more comfortable in C++, you can use C++ with a few minor tweaks. 
+
+For example:
+
+Check the main.cpp file inside AMLayer folder in the source code. In this cpp file, we are calling the C-style methods of Toy DB. For this to be made possible, an extra header file (amcppheader) containing the protoypes of the required functions in a specific format has been included. For more details:http://stackoverflow.com/questions/16850992/call-a-c-function-from-c-code
+
+Although, it is not a "big" source code, it would be highly beneficial for you to use cscope to navigate (find reference and declarations of variables/functions) through the code. If you are not familiar with cscope, have a quick look through this:http://cscope.sourceforge.net/large_projects.html
+
+Note: To understand the various functions of each of the layer, apart from the documentation provided, look through the various test files provided. The test files contains explanatory comments laying out what is being done. 
