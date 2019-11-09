@@ -38,12 +38,10 @@ typedef struct PFftab_ele {
 
 /* buffer page decl */
 typedef struct PFbpage {
-	struct PFbpage *nextpage;	/* next in the linked list of
-					buffer page */
-	struct PFbpage *prevpage;	/* previous in the linked list
-					of buffer pages */
+	struct PFbpage *nextpage;	/* next in the linked list of buffer page */
+	struct PFbpage *prevpage;	/* previous in the linked list of buffer pages */
 	short	dirty:1,		/* TRUE if page is dirty */
-		fixed:1;		/* TRUE if page is fixed in buffer*/
+			fixed:1;		/* TRUE if page is fixed in buffer*/
 	int	page;			/* page number of this page */
 	int	fd;			/* file desciptor of this page */
 	PFfpage fpage; /* page data from the file */
@@ -52,15 +50,11 @@ typedef struct PFbpage {
 
 
 /******************** Hash Table Decls ****************************/
-//#define PF_HASH_TBL_SIZE	20	/* size of PF hash table */
-static int PF_HASH_TBL_SIZE=4;
-static int globalDepth=2;
-//static int localDepth=2;
+static int PF_HASH_TBL_SIZE = 4;
+static int globalDepth = 2;
 
 /* Hash table bucket entries*/
 typedef struct PFhash_entry {
-	//struct PFhash_entry *nextentry; /* next hash table element, or NULL */
-	//struct PFhash_entry *preventry;/*previous hash table element,or NULL*/
 	int fd,fd2,fd3;		/* file descriptor */
 	int page,page2,page3;	/* page number */
 	struct PFbpage *bpage,*bpage2,*bpage3; /* pointer to buffer holding this page */
@@ -73,15 +67,15 @@ typedef struct PFhash_entry {
 /******************* Interface functions from Hash Table ****************/
 extern void PFhashInit();
 extern PFbpage *PFhashFind();
-extern PFhashInsert();
-extern PFhashDelete();
-extern PFhashPrint();
-extern void PFhashSplitBucket(int,int,int,int,int);
+extern int PFhashInsert();
+extern int PFhashDelete();
+extern int PFhashPrint();
+extern int PFhashSplitBucket(int,int,int,int,PFbpage*);
 extern void doubleTable();
 
 
 /****************** Interface functions from Buffer Manager *************/
-extern PFbufGet();
-extern PFbufUnfix();
-extern PFbufalloc();
-extern PFbufReleaseFile();
+extern int PFbufGet();
+extern int PFbufUnfix();
+extern int PFbufalloc();
+extern int PFbufReleaseFile();

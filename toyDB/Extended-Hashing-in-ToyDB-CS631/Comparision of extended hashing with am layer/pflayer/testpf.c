@@ -1,5 +1,6 @@
 /* testpf.c */
 #include <stdio.h>
+#include <stdlib.h>
 #include "pf.h"
 #include "pftypes.h"
 
@@ -15,7 +16,7 @@ int *buf1,*buf2;
 int fd1,fd2;
 
 
-
+	PFhashInit();
 	/* create a few files */
 	if ((error=PF_CreateFile(FILE1))!= PFE_OK){
 		PF_PrintError("file1");

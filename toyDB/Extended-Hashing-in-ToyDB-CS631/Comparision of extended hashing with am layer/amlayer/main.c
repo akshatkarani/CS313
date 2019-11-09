@@ -75,7 +75,7 @@ void indexing()
   PFhashInit();
   PF_Init();
 
-  
+
 
   if ((filed1=PF_OpenFile("file1"))<0)
           {
@@ -90,7 +90,7 @@ void indexing()
         //filed = PF_OpenFile(fname);
 
        gettimeofday(&start, NULL);
- pagenum1=-1;            
+ pagenum1=-1;
   while ((error=PF_GetNextPage(filed1,&pagenum1,&buf1))== PFE_OK)
               {
                 //printf("2\n");
@@ -104,7 +104,7 @@ void indexing()
               }
       //errVal = AM_CreateIndex("file1", 1, 'i', 4);
 
- 
+
       gettimeofday(&stop, NULL);
       time1=stop.tv_usec - start.tv_usec;
        size1=sizeof(PFhash_entry)*PF_HASH_TBL_SIZE+sizeof(pagenum1)+sizeof(buf1)+sizeof(filed1);
@@ -115,7 +115,7 @@ void indexing()
           PF_PrintError("open file1");
           exit(1);
         }
-         
+
 
 
 
@@ -163,7 +163,7 @@ void insert()
     int *buf1;
     int size1,size2;
     char fname[300];
-     
+
    sprintf(fname,"%s.0","file1");
         //filed = PF_OpenFile(fname);
 
@@ -173,15 +173,15 @@ void insert()
      // *((int *)buf1) =pageno;
     /*
      if(error=PF_AllocPage(fd,&pageno,&buf1)!=PFE_OK)
-    { 
-        
+    {
+
          PF_PrintError("first buffer\n");
          exit(1);
     }
-    
+
     *((int *)buf1) =pageno;
     //printf("allocated page %d\n",pageno);
-    
+
     if ((error=PF_UnfixPage(fd,pageno,TRUE))!= PFE_OK)
         {
          PF_PrintError("unfix file1");
@@ -199,12 +199,12 @@ if((fd1=PF_OpenFile("file2"))<0)
     exit(1);
   }
 
- 
+
   for(i=0;i<=1000;i++)
   {
     if(error=PF_AllocPage(fd1,&pageno,&buf1)!=PFE_OK)
-    { 
-        
+    {
+
          PF_PrintError("first buffer\n");
          exit(1);
     }
@@ -239,7 +239,7 @@ if((fd1=PF_OpenFile("file2"))<0)
        {
         printf("PFhashInsert failed\n");
        }
-   }   
+   }
 
   gettimeofday(&stop, NULL);
 

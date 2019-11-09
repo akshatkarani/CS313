@@ -592,7 +592,6 @@ int error;
 		/* increment # of pages for this file */
 		PFftab[fd].hdr.numpages++;
 		PFftab[fd].hdrchanged = TRUE;
-
 		/* mark this page dirty */
 		if ((error=PFbufUsed(fd,*pagenum))!= PFE_OK){
 			printf("internal error: PFalloc()\n");

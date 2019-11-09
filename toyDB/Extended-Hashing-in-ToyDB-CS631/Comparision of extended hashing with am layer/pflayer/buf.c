@@ -341,17 +341,14 @@ PFbpage *bpage;
 int error;
 
 	*fpage = NULL;	/* initial value of fpage */
-
 	if ((bpage=PFhashFind(fd,pagenum))!= NULL){
 		/* page already in buffer*/
 		PFerrno = PFE_PAGEINBUF;
 		return(PFerrno);
 	}
-
 	if ((error=PFbufInternalAlloc(&bpage,writefcn))!= PFE_OK)
 		/* can't get any buffer */
 		return(error);
-	
 	/* put ourselves into the hash table */
 	if ((error=PFhashInsert(fd,pagenum,bpage))!= PFE_OK){
 		/* can't insert into the hash table */
@@ -455,7 +452,14 @@ PFbpage *bpage;	/* pointer to the bpage we are looking for */
 		PFerrno = PFE_PAGENOTINBUF;
 		return(PFerrno);
 	}
-
+	PFbufPrint();
+	if (bpage->fixed == NULL)
+		printf("NULL\n");
+	else
+	{
+		printf("NOT NULL\n");
+	}
+	
 	if (!(bpage->fixed)){
 		/* page not fixed */
 		PFerrno = PFE_PAGEUNFIXED;
@@ -468,7 +472,6 @@ PFbpage *bpage;	/* pointer to the bpage we are looking for */
 	/* make this page head of the list of buffers*/
 	PFbufUnlink(bpage);
 	PFbufLinkHead(bpage);
-
 	return(PFE_OK);
 }
 

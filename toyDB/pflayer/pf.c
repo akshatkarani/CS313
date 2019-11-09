@@ -574,7 +574,6 @@ int error;
 	}
 
 	if (PFftab[fd].hdr.firstfree != PF_PAGE_LIST_END){
-		printf("Test1\n");
 		/* get a page from the free list */
 		*pagenum = PFftab[fd].hdr.firstfree;
 		if ((error=PFbufGet(fd,*pagenum,&fpage,PFreadfcn,
@@ -585,7 +584,6 @@ int error;
 		PFftab[fd].hdrchanged = TRUE;
 	}
 	else {
-		printf("Test2\n");
 		/* Free list empty, allocate one more page from the file */
 		*pagenum = PFftab[fd].hdr.numpages;
 		if ((error=PFbufAlloc(fd,*pagenum,&fpage,PFwritefcn))!= PFE_OK)

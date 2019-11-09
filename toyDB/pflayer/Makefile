@@ -10,17 +10,20 @@ tests: testhash testpf
 
 testpf: testpf.o pflayer.o
 	cc -o testpf testpf.o pflayer.o
-	@echo "Entered"
 
 testhash: testhash.o pflayer.o
 	cc -o testhash testhash.o pflayer.o
-	@echo "Entered"
+
+testfile: testfile.o pflayer.o
+	cc -o testfile testfile.o pflayer.o
 
 $(OBJ): $(HDR)
 
 testhash.o: $(HDR)
 
 testpf.o: $(HDR)
+
+testfile.o: $(HDR)
 
 lint: 
 	lint $(SRC)

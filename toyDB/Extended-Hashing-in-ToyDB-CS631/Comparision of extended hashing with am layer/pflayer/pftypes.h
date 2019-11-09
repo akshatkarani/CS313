@@ -73,15 +73,15 @@ typedef struct PFhash_entry {
 /******************* Interface functions from Hash Table ****************/
 extern void PFhashInit();
 extern PFbpage *PFhashFind();
-extern PFhashInsert();
-extern PFhashDelete();
-extern PFhashPrint();
-extern void PFhashSplitBucket(int,int,int,int,int);
+extern int PFhashInsert();
+extern int PFhashDelete();
+extern int PFhashPrint();
+extern int PFhashSplitBucket(int,int,int,int,PFbpage*);
 extern void doubleTable();
 
 
 /****************** Interface functions from Buffer Manager *************/
-extern PFbufGet();
-extern PFbufUnfix();
-extern PFbufalloc();
-extern PFbufReleaseFile();
+extern int PFbufGet();
+extern int PFbufUnfix();
+extern int PFbufalloc();
+extern int PFbufReleaseFile();

@@ -29,9 +29,8 @@ GLOBAL VARIABLES MODIFIED:
 	PFhashtbl
 *****************************************************************************/
 {
-int i;
-PFhashtbl=(PFhash_entry **)malloc(PF_HASH_TBL_SIZE*sizeof(PFhash_entry *));
-
+	int i;
+	PFhashtbl = (PFhash_entry **)malloc(PF_HASH_TBL_SIZE*sizeof(PFhash_entry *));
 	for (i=0; i < PF_HASH_TBL_SIZE; i++)
 		PFhashtbl[i] = NULL;
 }
@@ -107,6 +106,7 @@ PFhash_entry *entry; /* pointer to new entry */
 	{
 		/* page already inserted */
 		PFerrno = PFE_HASHPAGEEXIST;
+		printf("Page Already Existed\n");
 		return(PFerrno);
 	}
 	
@@ -194,7 +194,7 @@ PFhash_entry *entry; /* pointer to new entry */
 
 
 
-PFhashSplitBucket(int localDepth,int bucket,int fd,int page,int bpage)
+PFhashSplitBucket(int localDepth,int bucket,int fd,int page,PFbpage *bpage)
 {
 	int i=0;		//used to count while loop
 	PFhash_entry *entry; /* pointer to new entry */
@@ -217,7 +217,7 @@ PFhashSplitBucket(int localDepth,int bucket,int fd,int page,int bpage)
 		{
 			int fd;
 			int page;
-			int bpage;			
+			PFbpage *bpage;			
 		};
 		struct temp *temp[4];
 		temp[0]=(struct temp *)malloc(sizeof(struct temp));
@@ -264,6 +264,8 @@ PFhashSplitBucket(int localDepth,int bucket,int fd,int page,int bpage)
 		PFhashInsert(temp[3]->fd,temp[3]->page,temp[3]->bpage);
 		printf("Bucket split Successful\n");
 
+		PFhashPrint();
+		return;
 
 		
 		/*i=0;
@@ -286,7 +288,7 @@ void doubleTable()
 	printf("\nHash Table size have to be Doubled.\n");
 	PF_HASH_TBL_SIZE=PF_HASH_TBL_SIZE*2;
 	printf("spot1%d\n",PF_HASH_TBL_SIZE);
-	PFhashtbl=(PFhash_entry **)realloc(PFhashtbl,PF_HASH_TBL_SIZE*sizeof(PFhash_entry *));
+	PFhashtbl = (PFhash_entry **)realloc(PFhashtbl,PF_HASH_TBL_SIZE*sizeof(PFhash_entry *));
 	printf("spot2\n");
 
 	for (i=PF_HASH_TBL_SIZE/2,j=0; i < PF_HASH_TBL_SIZE; i++,j++)

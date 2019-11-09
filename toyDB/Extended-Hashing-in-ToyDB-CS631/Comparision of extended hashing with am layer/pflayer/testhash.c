@@ -1,8 +1,7 @@
 /* testhash.c: tests the hash table functions */
 #include <stdio.h>
 #include "pf.h"
-
-
+#include <stdlib.h>
 
 
 void menu();

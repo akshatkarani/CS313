@@ -73,6 +73,8 @@ int fd1,fd2;
 			printf("disposed %d of file2\n",i);
 		}
 	}
+	PFhashPrint();
+	PFbufPrint();
 
 	if ((error=PF_CloseFile(fd1))!= PFE_OK){
 		PF_PrintError("close fd1");
@@ -325,6 +327,7 @@ int error;
 		}
 		*((int *)buf) = i;
 		printf("allocated page %d\n",pagenum);
+		printf("buf page %d\n",*buf);
 	}
 
 	if ((error=PF_AllocPage(fd,&pagenum,&buf))==PFE_OK){
