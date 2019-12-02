@@ -55,6 +55,9 @@ int fd1,fd2;
 	}
 	printf("opened file2\n");
 
+	PFhashPrint();
+	PFbufPrint();
+
 	/* get rid of records  1, 3, 5, etc from file 1,
 	and 0,2,4,6 from file2 */
 	for (i=0; i < PF_MAX_BUFS; i++){

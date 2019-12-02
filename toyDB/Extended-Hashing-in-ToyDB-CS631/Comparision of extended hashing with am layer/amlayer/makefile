@@ -4,9 +4,6 @@ a.out : am.o amfns.o amsearch.o aminsert.o amstack.o amglobals.o ../pflayer/pfla
 amlayer.o : am.o amfns.o amsearch.o aminsert.o amstack.o amglobals.o amscan.o amprint.o
 	ld -r am.o amfns.o amsearch.o aminsert.o  amstack.o amglobals.o amscan.o amprint.o -o amlayer.o 
 
-misc.o : misc.c am.h pf.h
-	cc -c misc.c
-
 am.o : am.c am.h pf.h
 	cc -c am.c
 
@@ -33,5 +30,3 @@ amprint.o : amprint.c am.h pf.h
 	
 main.o : main.c am.h pf.h 
 	cc -c main.c
-clean:
-	rm *.o

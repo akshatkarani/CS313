@@ -29,8 +29,8 @@ from
 where q1.semester=q2.semester and q1.year=q2.year;
 -------------------------------------------------------
 
-select * from student where (ID, dept_name) in
-(select ID, dept_name from course natural join takes where grade='B');
+select * from student where (ID) in
+(select ID from takes where course_id = '802' and grade='B+');
 ------------------------------------------------------------
 
 select a.id, a.dept_name, b.cnt from

@@ -38,9 +38,9 @@ where dept_name='English';
 ------------------------------------------------------------
 
 
-select ID as fac_id, count(course_id), sum(credits)
-from teaches natural join section natural join course
-where year=2010 or year=2011 group by ID;
+select ID as fac_id, count(course_id) as num of courses
+from teaches natural join section
+where year=2010 group by ID;
 
 
 -----------------------------------------------------------
